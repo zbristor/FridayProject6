@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="www.thymeleaf.org">
+<head th:replace="index::head">
+
+</head>
+<body>
+<nav th:replace="index::navseeker"></nav>
+<div class = "container">
+<form th:action = "@{/education}" th:object = "${education}" method = "post">
+    <div class="form-group">
+        <label for="exampleInputname1">Degree</label>
+        <input type="text" class="form-control" id="exampleInputname1" placeholder="Title" th:field="*{degree}"/>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputurl2">Year</label>
+        <input type="text" class="form-control" id="exampleInputurl2" placeholder="URL" th:field="*{year}"/>
+    </div>
+    <div class="form-group">
+        <label for="exampleInputurl3">School</label>
+        <input type="text" class="form-control" id="exampleInputurl3" placeholder="URL" th:field="*{school}"/>
+    </div>
+    <input type="submit" value = "Submit"/>
+</form>
+</div>
+</body>
+</html>
