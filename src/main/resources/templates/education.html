@@ -13,13 +13,22 @@
     </div>
     <div class="form-group">
         <label for="exampleInputurl2">Year</label>
-        <input type="text" class="form-control" id="exampleInputurl2" placeholder="URL" th:field="*{year}"/>
+        <input type="text" class="form-control" id="exampleInputurl2" placeholder="Year" th:field="*{year}"/>
     </div>
     <div class="form-group">
         <label for="exampleInputurl3">School</label>
-        <input type="text" class="form-control" id="exampleInputurl3" placeholder="URL" th:field="*{school}"/>
+        <input type="text" class="form-control" id="exampleInputurl3" placeholder="School" th:field="*{school}"/>
     </div>
-    <input type="submit" value = "Submit"/>
+    <form method="post" action="/education">
+        <input type="submit" value = "Add More" />
+    </form>
+    <form method="post" action="/work">
+        <input type="submit" value = "Continue" />
+    </form>
+    <form method="post" action="/skills">
+        <input type="submit" value = "Go to skill entry" />
+    </form>
+
 </form>
 </div>
 </body>

@@ -1,10 +1,41 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+<html lang="en"  xmlns:th="www.thymeleaf.org">
+<head th:replace="index::head">
+
 </head>
 <body>
-$END$
+<nav th:replace="index::navseeker"></nav>
+<div class = "container">
+    <form th:action = "@{/work}" th:object = "${work}" method = "post">
+        <div class="form-group">
+            <label for="exampleInputname1">Position</label>
+            <input type="text" class="form-control" id="exampleInputname1" placeholder="Position" th:field="*{position}"/>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputurl2">Company</label>
+            <input type="text" class="form-control" id="exampleInputurl2" placeholder="Company" th:field="*{company}"/>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputurl3">Start Date</label>
+            <input type="text" class="form-control" id="exampleInputurl3" placeholder="Start Date" th:field="*{start}"/>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputurl4">End Date</label>
+            <input type="text" class="form-control" id="exampleInputurl4" placeholder="Start Date" th:field="*{end}"/>
+        </div>
+        <div class="form-group">
+            <label for="exampleInputurl5">Duties</label>
+            <input type="text" class="form-control" id="exampleInputurl5" placeholder="Duties" th:field="*{duties}"/>
+        </div>
+        <form method="post" action="/work">
+            <input type="submit" value = "Add More" />
+        </form>
+        <!--<form method=""-->
+        <form method="post" action="/skills">
+            <input type="submit" value = "Continue" />
+        </form>
+
+    </form>
+</div>
 </body>
 </html>

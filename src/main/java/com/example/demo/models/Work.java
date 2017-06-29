@@ -1,12 +1,16 @@
 package com.example.demo;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.Scanner;
 @Entity
 public class Work {
-@Id
+	@Id
+@GeneratedValue(strategy= GenerationType.AUTO)
+private int workID;
 private String email;
 private String position;
 private String company;
@@ -29,7 +33,15 @@ public Work(String position, String company, String start, String end, String du
 	this.email=email;
 }
 
-public ArrayList<String> getDuty() {
+	public int getWorkID() {
+		return workID;
+	}
+
+	public void setWorkID(int workID) {
+		this.workID = workID;
+	}
+
+	public ArrayList<String> getDuty() {
 	return duty;
 }
 public void setDuty(ArrayList<String> duty) {
@@ -73,4 +85,5 @@ public void setDuties(String duties) {
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 }
