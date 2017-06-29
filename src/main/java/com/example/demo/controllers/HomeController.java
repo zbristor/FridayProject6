@@ -15,6 +15,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.security.Principal;
+
 /**
  * Created by student on 6/28/17.
  */
@@ -38,14 +40,12 @@ public class HomeController {
         return "education";
     }
     @PostMapping ("/education")
-    public String postEducation(Model model, @ModelAttribute Education education) {
-        education.setEmail("");
-        /*
-        model.addAttribute("degree", education.getDegree());
-        model.addAttribute("school", education.getEmail());
-        model.addAttribute("year", education.getYear());
-        */
+    public String postEducation(Model model, @ModelAttribute Education education, Principal principal) {
+        String username = principal.getName();
+        education.setEmail(username);
+        //System.out.println(principal.getName());
         eduRepository.save(education);
+        model.addAttribute(new Education());
         return "education";
     }
 
@@ -56,10 +56,11 @@ public class HomeController {
         return "work";
     }
     @PostMapping ("/work")
-    public String postWork(@ModelAttribute Work work, Model model)
+    public String postWork(@ModelAttribute Work work, Model model, Principal principal)
     {
-        work.setEmail("");
+        work.setEmail(principal.getName());
         workRepository.save(work);
+        model.addAttribute(new Work());
         return "work";
     }
     @RequestMapping("/skills")
@@ -69,36 +70,29 @@ public class HomeController {
         return "skills";
     }
     @PostMapping("/skills")
-    public String postSkills(@ModelAttribute Skills skills, Model model)
+    public String postSkills(@ModelAttribute Skills skills, Model model, Principal principal)
     {
-        skills.setEmail("");
+        skills.setEmail(principal.getName());
         //model.addAttribute("skill",skills.getSkill());
         skillRepository.save(skills);
+        model.addAttribute(new Skills());
         return "skills";
     }
     @GetMapping("/generateresume")
-    public String generateResume(Model model)
+    public String generateResume(Model model, Principal principal)
     {
-        Iterable<Education> educationList = eduRepository.findAllByEmail("");
+        Iterable<Education> educationList = eduRepository.findAllByEmail(principal.getName());
         model.addAttribute("educationList", educationList);
-        Iterable<Work> workList = workRepository.findAllByEmail("");
+        Iterable<Work> workList = workRepository.findAllByEmail(principal.getName());
         model.addAttribute("workList", workList);
-        Iterable<Skills> skillList = skillRepository.findAllByEmail("");
+        Iterable<Skills> skillList = skillRepository.findAllByEmail(principal.getName());
         model.addAttribute("skillList", skillList);
         return "generateresume";
-
     }
-
-
-
-
-    /*
-    @PostMapping("/addresume")
-    public String postResume()
-    {
-        return
+    @RequestMapping("/login")
+    public String login(){
+        return "login";
     }
-    */
 
 
 

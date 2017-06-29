@@ -1,6 +1,6 @@
-package byAJ.Securex.repositories;
+package com.example.demo.repositories;
 
-import byAJ.Securex.models.User;
+import com.example.demo.models.User;
 import org.springframework.data.repository.CrudRepository;
 
 /**

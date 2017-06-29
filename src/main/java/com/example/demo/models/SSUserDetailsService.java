@@ -1,6 +1,6 @@
-package byAJ.Securex.models;
+package com.example.demo.models;
 
-import byAJ.Securex.repositories.UserRepository;
+import com.example.demo.repositories.UserRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.security.core.GrantedAuthority;
