@@ -5,9 +5,23 @@
 </head>
 <body>
 <nav th:replace="index::navseeker"></nav>
+
+<form th:action = "@{/seekersearch}" th:object = "${user}" method = "post">
+    <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter username" th:field="*{username}"/>
+</form>
+<form th:action = "@{/seekersearch}" th:object = "${user}" method = "get">
 <div class = "container">
-
-
+    <table class="table">
+        <th height="50">Experience</th>
+        <th height="50">Skills</th>
+        <div th:each = "user: ${userList}">
+            <tr>
+                <td> <a th:utext =  "${user.username}" >Degree  </a> </td>
+                <td> <a th:utext =  "${user.id}" >Degree  </a> </td>
+            </tr>
+        </div>
+    </table>
 </div>
+</form>
 </body>
 </html>

@@ -1,28 +1,39 @@
 package com.example.demo;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.ArrayList;
 import java.util.Scanner;
 @Entity
 public class Person {
+	@Id
+	@GeneratedValue(strategy= GenerationType.AUTO)
+	private int personID;
 	private String fname;
 	private String lname;
-	@Id
 	private String email;
-	private ArrayList<Education> eduArray = new ArrayList<Education>();
-	private ArrayList<Work> workArray = new ArrayList<Work>();
-	private ArrayList<Skills> skillArray = new ArrayList<Skills>();
-public Person(String fname, String lname, String email, ArrayList<Education> eduArray, ArrayList<Work> workArray, ArrayList<Skills> skillArray)
+public Person()
+{
+
+}
+public Person(String fname, String lname, String email)
 {
 	this.fname=fname;
 	this.lname=lname;
-	this.eduArray=eduArray;
-	this.workArray=workArray;
-	this.skillArray=skillArray;
+	this.email=email;
 }
 
-public String getFname() {
+	public int getPersonID() {
+		return personID;
+	}
+
+	public void setPersonID(int personID) {
+		this.personID = personID;
+	}
+
+	public String getFname() {
 	return fname;
 }
 public void setFname(String fname) {
@@ -40,15 +51,5 @@ public String getEmail() {
 public void setEmail(String email) {
 	this.email = email;
 }
-public void addEdu(Education e){
-	eduArray.add(e);
 }
-public void addWork(Work w)
-{
-	workArray.add(w);
-}
-public void addSkill(Skills s)
-{
-	skillArray.add(s);
-}
-}
+

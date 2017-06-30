@@ -13,7 +13,8 @@ public class User {
     private long id;
 
     private String username;
-
+    private String fname;
+    private String lname;
     private String password;
 
     private boolean enabled;
@@ -56,6 +57,22 @@ public class User {
 
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
+    }
+
+    public String getFname() {
+        return fname;
+    }
+
+    public void setFname(String fname) {
+        this.fname = fname;
+    }
+
+    public String getLname() {
+        return lname;
+    }
+
+    public void setLname(String lname) {
+        this.lname = lname;
     }
 
     @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)

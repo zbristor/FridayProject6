@@ -7,6 +7,9 @@
 <nav th:replace="index::navseeker"></nav>
 <div class = "container">
     <table class="table">
+        <tr>
+            <td> <a th:utext =  "${fname+' '+lname+'&lt;br/&gt;'+email}"></a></td>
+        </tr>
         <th height="50">Education</th>
         <div th:each = "education: ${educationList}">
             <tr>
