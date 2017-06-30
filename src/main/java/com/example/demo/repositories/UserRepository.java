@@ -17,6 +17,6 @@ public interface UserRepository extends CrudRepository<User, Long> {
     @Query
     User findLnameByUsername(String username);
     */
-    @Query(value= "select username,id from User where username=?0",nativeQuery = true)
+    //@Query(value= "select username,id from User where username=?0",nativeQuery = true)
     List<User> findAllByUsername(String username);
 }

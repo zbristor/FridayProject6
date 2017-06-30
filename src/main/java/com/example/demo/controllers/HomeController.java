@@ -112,18 +112,16 @@ public class HomeController {
         return "seekersearch";
     }
     @PostMapping("/seekersearch")
-    public String postSeekersearch(Model model,Principal principal)
-    {
+    public String postSeekersearch(User user, Model model){
+        String userna = user.getUsername();
+        //model.addAttribute("username",username);
+        Iterable<User> userList=userRepository.findAllByUsername(userna);
+        model.addAttribute("userList",userList);
+        /*
         Iterable<User> userList=userRepository.findAllByUsername(principal.getName());
         model.addAttribute("userList",userList);
-        return "seekersearch";
-    }
-    @GetMapping("/seekerresult")
-    public String postSeekerresult(Model model,Principal principal, @ModelAttribute User user)
-    {
-        Iterable<User> userList=userRepository.findAllByUsername(principal.getName());
-        model.addAttribute("userList",userList);
-        return "seekersearch";
+        */
+        return "seekerresult";
     }
 
     @RequestMapping("/login")
