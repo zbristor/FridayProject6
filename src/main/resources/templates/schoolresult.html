@@ -5,11 +5,11 @@
 </head>
 <body>
 <nav th:replace="index::navseeker"></nav>
+<div class = "container">
 <form th:action = "@{/recruitSchoolSearch}" th:object = "${education}" method = "get">
     <div class = "container">
         <table class="table">
             <th height="50">Username</th>
-            <th height="50">School</th>
             <th height="50">Degree</th>
             <th height="50">Graduation Year</th>
             <div th:each = "education: ${schoolList}">
@@ -23,5 +23,6 @@
         </table>
     </div>
 </form>
+</div>
 </body>
 </html>

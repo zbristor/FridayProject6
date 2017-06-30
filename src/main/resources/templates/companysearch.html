@@ -1,10 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<html lang="en"  xmlns:th="www.thymeleaf.org">
+<head th:replace="index::head">
+
 </head>
 <body>
-
+<nav th:replace="index::navseeker"></nav>
+<div class = "container">
+<form th:action = "@{/recruitCompanySearch}" th:object = "${work}" method = "get">
+    <div class = "container">
+        <table class="table">
+            <th height="50">Position</th>
+            <th height="50">Starting Date</th>
+            <th height="50">Start Date</th>
+            <th height="50">End Date</th>
+            <div th:each = "work: ${companyList}">
+                <tr>
+                    <td> <a th:utext =  "${work.email}" >Username  </a> </td>
+                    <td> <a th:utext =  "${work.position}" >Position  </a> </td>
+                    <!--<td> <a th:utext =  "${education.school}" >Degree  </a> </td>-->
+                    <td> <a th:utext =  "${work.start}" >Start  </a> </td>
+                    <td> <a th:utext =  "${work.end}" >End  </a> </td>
+                </tr>
+            </div>
+        </table>
+    </div>
+</form>
+</div>
 </body>
 </html>

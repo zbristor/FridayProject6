@@ -134,7 +134,7 @@ public class HomeController {
     @GetMapping("/recruitSchoolSearch")
     public String getSchoolSearch(Model model, Education education)
     {
-        model.addAttribute(new User());
+        model.addAttribute(new Education());
         return "recruitSchoolSearch";
     }
     @PostMapping("/recruitSchoolSearch")
@@ -143,6 +143,32 @@ public class HomeController {
         Iterable<Education> schoolList=eduRepository.findBySchool(userna);
         model.addAttribute("schoolList",schoolList);
         return "schoolresult";
+    }
+    @GetMapping("/recruitCompanySearch")
+    public String getCompanySearch(Model model)
+    {
+        model.addAttribute(new Work());
+        return "recruitCompanySearch";
+    }
+    @PostMapping("/recruitCompanySearch")
+    public String postCompanySearch(Work work, Model model) {
+        String userna = work.getCompany();
+        Iterable<Work> companyList = workRepository.findByCompany(userna);
+        model.addAttribute("companyList", companyList);
+        return "companysearch";
+    }
+    @GetMapping("/recruitSkillSearch")
+    public String getSkillSearch(Model model)
+    {
+        model.addAttribute(new Skills());
+        return "recruitSkillSearch";
+    }
+    @PostMapping("/recruitSkillSearch")
+    public String postSkillSearch(Skills skills, Model model) {
+        String userna = skills.getSkill();
+        Iterable<Skills> skillList = skillRepository.findBySkill(userna);
+        model.addAttribute("skillList", skillList);
+        return "skillsearch";
     }
     @RequestMapping("/login")
     public String login(){

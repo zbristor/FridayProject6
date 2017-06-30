@@ -12,4 +12,6 @@ import java.util.List;
 public interface SkillRepository extends CrudRepository<Skills, Integer> {
     @Query
     public List<Skills> findTop20ByEmail(String email);
+    @Query
+    public List<Skills> findBySkill(String email);
 }

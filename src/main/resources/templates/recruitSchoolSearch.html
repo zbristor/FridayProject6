@@ -5,11 +5,11 @@
 </head>
 <body>
 <nav th:replace="index::navseeker"></nav>
-
+<div class = "container">
 <form th:action = "@{/recruitSchoolSearch}" th:object = "${education}" method = "post">
     <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter School" th:field="*{school}"/>
     <input type="submit" value="Search" />
 </form>
-
+</div>
 </body>
 </html>

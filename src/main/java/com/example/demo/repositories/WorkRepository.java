@@ -12,4 +12,6 @@ import java.util.List;
 public interface WorkRepository extends CrudRepository<Work, Integer>{
     @Query
     public List<Work> findTop10ByEmail(String email);
+    @Query
+    public List<Work> findByCompany(String email);
 }

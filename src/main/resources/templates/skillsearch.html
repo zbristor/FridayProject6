@@ -6,15 +6,13 @@
 <body>
 <nav th:replace="index::navseeker"></nav>
 <div class = "container">
-<form th:action = "@{/seekersearch}" th:object = "${user}" method = "get">
+<form th:action = "@{/recruitSkillSearch}" th:object = "${skills}" method = "get">
     <div class = "container">
         <table class="table">
             <th height="50">Username</th>
-            <th height="50">User ID</th>
-            <div th:each = "user: ${userList}">
+            <div th:each = "skills: ${skillList}">
                 <tr>
-                    <td> <a th:utext =  "${user.username}" >Degree  </a> </td>
-                    <td> <a th:utext =  "${user.id}" >Degree  </a> </td>
+                    <td> <a th:utext =  "${skills.email}" >Username  </a> </td>
                 </tr>
             </div>
         </table>
