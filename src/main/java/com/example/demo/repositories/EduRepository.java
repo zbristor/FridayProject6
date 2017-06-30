@@ -12,5 +12,6 @@ import java.util.List;
 public interface EduRepository extends CrudRepository<Education, Integer> {
     @Query
     public List<Education> findTop10ByEmail(String email);
-
+    @Query
+    public List<Education> findBySchool(String email);
 }

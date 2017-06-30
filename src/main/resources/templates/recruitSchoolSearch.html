@@ -6,8 +6,8 @@
 <body>
 <nav th:replace="index::navseeker"></nav>
 
-<form th:action = "@{/recreuitUserSearch}" th:object = "${user}" method = "post">
-    <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter username" th:field="*{username}"/>
+<form th:action = "@{/recruitSchoolSearch}" th:object = "${education}" method = "post">
+    <input type="text" class="form-control" id="exampleInputname1" placeholder="Enter School" th:field="*{school}"/>
     <input type="submit" value="Search" />
 </form>
 

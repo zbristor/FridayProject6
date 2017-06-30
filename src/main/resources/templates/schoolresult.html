@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="www.thymeleaf.org">
+<head th:replace="index::head">
+
+</head>
+<body>
+<nav th:replace="index::navseeker"></nav>
+<form th:action = "@{/recruitSchoolSearch}" th:object = "${education}" method = "get">
+    <div class = "container">
+        <table class="table">
+            <th height="50">Username</th>
+            <th height="50">School</th>
+            <th height="50">Degree</th>
+            <th height="50">Graduation Year</th>
+            <div th:each = "education: ${schoolList}">
+                <tr>
+                    <td> <a th:utext =  "${education.email}" >Degree  </a> </td>
+                    <!--<td> <a th:utext =  "${education.school}" >Degree  </a> </td>-->
+                    <td> <a th:utext =  "${education.degree}" >Degree  </a> </td>
+                    <td> <a th:utext =  "${education.year}" >Degree  </a> </td>
+                </tr>
+            </div>
+        </table>
+    </div>
+</form>
+</body>
+</html>
