@@ -11,13 +11,12 @@
             <label for="exampleInputname1">Skill</label>
             <input type="text" class="form-control" id="exampleInputname1" placeholder="Skill" th:field="*{skill}"/>
         </div>
-        <form method="post" action="/skills">
+        <div method="post" action="/skills">
             <input type="submit" value = "Add More" />
-        </form>
-        <form method="get" action="/">
-            <input type="submit" value = "Home" />
-        </form>
-
+        </div>
+    </form>
+    <form method="get" action="/">
+        <input type="submit" value = "Home" />
     </form>
 </div>
 </body>

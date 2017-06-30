@@ -19,17 +19,18 @@
         <label for="exampleInputurl3">School</label>
         <input type="text" class="form-control" id="exampleInputurl3" placeholder="School" th:field="*{school}"/>
     </div>
-    <div method="post" action="/education">
+    <div action="/education">
         <input type="submit" value = "Add More" />
-    </div>
-    <div method="post" action="/work">
-        <input type="submit" value = "Continue" />
-    </div>
-    <div method="post" action="/skills">
-        <input type="submit" value = "Go to skill entry" />
     </div>
 
 </form>
+    <form action="/work">
+        <input type="submit" value = "Continue" />
+    </form>
+    <form action="/skills">
+        <input type="submit" value = "Go to skill entry" />
+    </form>
+
 </div>
 </body>
 </html>

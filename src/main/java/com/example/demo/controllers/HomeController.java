@@ -81,11 +81,11 @@ public class HomeController {
     @GetMapping("/generateresume")
     public String generateResume(Model model, Principal principal)
     {
-        Iterable<Education> educationList = eduRepository.findAllByEmail(principal.getName());
+        Iterable<Education> educationList = eduRepository.findTop10ByEmail(principal.getName());
         model.addAttribute("educationList", educationList);
-        Iterable<Work> workList = workRepository.findAllByEmail(principal.getName());
+        Iterable<Work> workList = workRepository.findTop10ByEmail(principal.getName());
         model.addAttribute("workList", workList);
-        Iterable<Skills> skillList = skillRepository.findAllByEmail(principal.getName());
+        Iterable<Skills> skillList = skillRepository.findTop20ByEmail(principal.getName());
         model.addAttribute("skillList", skillList);
         return "generateresume";
     }

@@ -24,6 +24,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
         http
                 .authorizeRequests()
                 .antMatchers("/").permitAll()
+                //.antMatchers("/").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin().loginPage("/login").permitAll()
@@ -33,7 +34,6 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .logoutSuccessUrl("/login").permitAll()
                 .and()
                 .httpBasic();
-
     }
 
     @Override
